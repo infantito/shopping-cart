@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "shopping cart",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/infantito/shopping-cart/tree/master/backend"
+  },
+  "keywords": [
+    "shopping cart",
+    "nodejs",
+    "graphql"
+  ],
+  "author": "infantito <danielinfantito61@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-boost": "^0.4.7",
+    "apollo-server-express": "^2.12.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
