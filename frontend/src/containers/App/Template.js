@@ -10,6 +10,7 @@ const theme = {
   danger: '#FF2D55 ',
   counter: '#FF8000 ',
   link: '#0500FF',
+  input: '48px',
 };
 
 const StyledPage = styled.div`
@@ -39,16 +40,16 @@ const GlobalStyles = createGlobalStyle`
 
 	*, *:before, *:after {
     box-sizing: inherit;
+		font-family: "Open Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
-    line-height: 2;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
+    font-size: initial;
+    line-height: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -58,6 +59,26 @@ const GlobalStyles = createGlobalStyle`
     color: ${theme.link};
   }
 
+	h3,
+	h4,
+	label,
+	p,
+	span {
+		color: ${theme.text};
+		line-height: normal;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	button {
+		outline: none;
+		appearance: none;
+	}
+
 	main {
 		display: flex;
 		align-items: center;
@@ -65,7 +86,7 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	::selection {
-		background-color: ${theme.background};
+		background-color: ${theme.highlight};
 		color: ${theme.text};
 		text-shadow: none;
 	}
