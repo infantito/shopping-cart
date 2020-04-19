@@ -7,13 +7,22 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
+      orderId: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+      },
       productId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: true,
+        defaultValue: sequelize.NOW,
       },
     },
     {
@@ -24,12 +33,12 @@ module.exports = (sequelize, DataTypes) => {
 
   Cart.associate = models => {
     Cart.hasMany(models.product, {
-      foreignKey: 'productId',
-      onDelete: 'CASCADE',
+      foreignKey: 'id',
+      as: 'products',
     });
 
     Cart.belongsTo(models.order, {
-      foreignKey: 'cartId',
+      foreignKey: 'orderId',
       onDelete: 'CASCADE',
     });
   };

@@ -10,10 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       description: {
         type: DataTypes.STRING,
         allowNull: true,
-      },
-      cartId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        defaultValue: 'Success',
       },
       total: {
         type: DataTypes.FLOAT(10, 2),
@@ -26,14 +23,16 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
+        defaultValue: sequelize.NOW,
       },
-      shippingDate: {
+      shippingAt: {
         type: DataTypes.DATE,
         allowNull: false,
       },
       available: {
         type: DataTypes.BOOLEAN,
-        allowNull: true,
+        allowNull: false,
+        defaultValue: true,
       },
     },
     {
@@ -43,9 +42,9 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Order.associate = models => {
-    Order.hasOne(models.cart, {
-      foreignKey: 'cartId',
-      onDelete: 'CASCADE',
+    Order.hasMany(models.cart, {
+      foreignKey: 'orderId',
+      as: 'carts',
     });
   };
 

@@ -23,13 +23,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      createdAt: {
-        type: DataTypes.DATE,
-        allowNull: true,
-      },
       available: {
         type: DataTypes.BOOLEAN,
         allowNull: true,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: sequelize.NOW,
       },
     },
     {
@@ -40,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Product.associate = models => {
     Product.belongsTo(models.cart, {
-      foreignKey: 'cartId',
+      foreignKey: 'id',
       onDelete: 'CASCADE',
     });
   };
