@@ -1,23 +1,36 @@
 import React from 'react';
 import { Router } from '@reach/router';
 import { ApolloProvider } from '@apollo/react-hooks';
+import { AppProvider } from 'containers/App/Context';
 import Template from 'containers/App/Template';
 import Home from 'pages/Home';
 import ThankYou from 'pages/ThankYou';
 import { HOME, THANK_YOU } from 'constants/paths';
 import client from 'config/client';
 
-function Unnecessary(props) {
+const Unnecessary = props => {
   return <article>{props.children}</article>;
-}
+};
+
+const NotFound = () => (
+  <div>
+    <span role="img" aria-label="wrong">
+      ❌
+    </span>{' '}
+    Sorry, nothing here.
+  </div>
+);
 
 function App() {
   return (
     <Template>
       <Router primary={false} component={Unnecessary}>
         <ApolloProvider client={client} path={HOME}>
-          <Home path={HOME} />
-          <ThankYou path={THANK_YOU} />
+          <AppProvider path={HOME}>
+            <Home path={HOME} />
+            <ThankYou path={THANK_YOU} />
+            <NotFound default />
+          </AppProvider>
         </ApolloProvider>
       </Router>
     </Template>

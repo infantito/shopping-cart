@@ -14,7 +14,7 @@ const delay = setContext(
       }, 800);
     }),
 );
-const http = new HttpLink({ uri: process.env.DOMAIN });
+const http = new HttpLink({ uri: process.env.REACT_APP_SERVICE });
 const link = ApolloLink.from([delay, http]);
 const cache = new InMemoryCache();
 

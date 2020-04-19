@@ -1,8 +1,8 @@
 import React from 'react';
-import EmptyBox from 'components/Empty/styles';
+import EmptyBox, { NotFoundBox } from 'components/Empty/styles';
 import cart from 'assets/cart.svg';
 
-const Empty = props => {
+const Empty = React.memo(_ => {
   return (
     <EmptyBox>
       <img src={cart} alt="🛒" />
@@ -10,6 +10,19 @@ const Empty = props => {
       <p>Seems like you haven’t chosen what to buy...</p>
     </EmptyBox>
   );
-};
+});
 
-export default Empty;
+const NotFound = React.memo(_ => {
+  return (
+    <NotFoundBox>
+      <p className="not-found">
+        <span role="img" aria-label="sorry">
+          😕
+        </span>{' '}
+        No results found.
+      </p>
+    </NotFoundBox>
+  );
+});
+
+export { NotFound, Empty as default };

@@ -2,16 +2,16 @@ import React from 'react';
 import { Minus, Plus } from 'components/Counter/Marks';
 import ButtonBox, { Handler } from 'components/Counter/styles';
 
-const Counter = props => {
+const Counter = React.memo(props => {
   return (
     <ButtonBox>
       <button type="button">✕</button>
       <button type="button">delete</button>
     </ButtonBox>
   );
-};
+});
 
-const Accumulator = props => {
+const Accumulator = React.memo(props => {
   return (
     <Handler>
       <div className="handler-content">
@@ -25,6 +25,6 @@ const Accumulator = props => {
       </div>
     </Handler>
   );
-};
+});
 
 export { Counter as default, Accumulator };

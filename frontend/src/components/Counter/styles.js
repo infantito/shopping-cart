@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const Handler = styled.div`
-  height: 100%;
+  height: auto;
+  position: absolute;
+  right: 1rem;
+  top: calc(
+    (${props => props.theme.product} / 2) - (${props => props.theme.input}) / 2
+  );
 
   .handler {
     &-content {
@@ -10,12 +15,6 @@ export const Handler = styled.div`
       color: #fff;
       overflow: hidden;
       padding: 0 0.25rem;
-      position: absolute;
-      right: 1rem;
-      top: calc(
-        (${props => props.theme.product} / 2) - (${props => props.theme.input}) /
-          2
-      );
       display: flex;
       align-items: center;
       justify-content: space-between;

@@ -29,4 +29,4 @@ const Billing = ({ subtotal, shipping, taxes, total }) => {
   );
 };
 
-export default Billing;
+export default React.memo(Billing);

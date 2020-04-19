@@ -1,5 +1,21 @@
 import styled from 'styled-components';
 
+export const NotFoundBox = styled.li`
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+
+  .not-found {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+`;
+
 export default styled.li`
   width: 100%;
   padding: 1rem;

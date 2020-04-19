@@ -5,4 +5,4 @@ const PayButton = props => {
   return <Button type="button">COMPLETE ORDER</Button>;
 };
 
-export default PayButton;
+export default React.memo(PayButton);
