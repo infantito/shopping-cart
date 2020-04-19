@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const theme = {
   background: '#E5E5E5',
@@ -11,11 +11,12 @@ const theme = {
   counter: '#FF8000 ',
   link: '#0500FF',
   input: '48px',
+  product: '106px',
 };
 
 const GlobalStyles = createGlobalStyle`
   html {
-    background-color: ${theme.background};
+    background-color: ${props => props.theme.background};
     box-sizing: border-box;
   }
 
@@ -45,7 +46,7 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${theme.link};
+    color: ${props => props.theme.link};
   }
 
 	h3,
@@ -53,7 +54,7 @@ const GlobalStyles = createGlobalStyle`
 	label,
 	p,
 	span {
-		color: ${theme.text};
+		color: ${props => props.theme.text};
 		line-height: normal;
 	}
 
@@ -79,19 +80,19 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	::selection {
-		background-color: ${theme.highlight};
-		color: ${theme.text};
+		background-color: ${props => props.theme.highlight};
+		color: ${props => props.theme.text};
 		text-shadow: none;
 	}
 
   ::-webkit-scrollbar {
-    background-color: ${theme.border};
-    border-left: 1px solid ${theme.submit};
+    background-color: ${props => props.theme.border};
+    border-left: 1px solid ${props => props.theme.text};
     width: 12.5px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${theme.submit};
+    background-color: ${props => props.theme.text};
     outline: 10px solid transparent;
   }
 `;

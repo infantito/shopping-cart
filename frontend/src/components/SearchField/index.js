@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from 'components/TextField/styles';
+import Input from 'components/SearchField/styles';
 
-const TextField = props => {
+const SearchField = props => {
   return (
     <Input
       type="search"
@@ -12,4 +12,4 @@ const TextField = props => {
   );
 };
 
-export default TextField;
+export default SearchField;

@@ -1,13 +1,30 @@
 import React from 'react';
-import Button from 'components/Counter/styles';
+import { Minus, Plus } from 'components/Counter/Marks';
+import ButtonBox, { Handler } from 'components/Counter/styles';
 
 const Counter = props => {
   return (
-    <div>
-      <Button type="button">✕</Button>
+    <ButtonBox>
+      <button type="button">✕</button>
       <button type="button">delete</button>
-    </div>
+    </ButtonBox>
   );
 };
 
-export default Counter;
+const Accumulator = props => {
+  return (
+    <Handler>
+      <div className="handler-content">
+        <button type="button">
+          <Minus />
+        </button>
+        <input type="tel" maxLength="4" placeholder="1234" />
+        <button type="button">
+          <Plus />
+        </button>
+      </div>
+    </Handler>
+  );
+};
+
+export { Counter as default, Accumulator };

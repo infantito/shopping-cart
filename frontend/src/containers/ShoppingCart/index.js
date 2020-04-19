@@ -1,5 +1,5 @@
 import React from 'react';
-import TextField from 'components/TextField';
+import SearchField from 'components/SearchField';
 import Product from 'components/Product';
 import Empty from 'components/Empty';
 import Shopping from 'containers/ShoppingCart/styles';
@@ -8,11 +8,14 @@ const ShoppingCart = props => {
   return (
     <Shopping>
       <div className="shopping-box">
-        <TextField />
+        <SearchField />
       </div>
       <div className="shopping-box">
         <ul className="shopping-box-content">
-          <Empty />
+          <Product />
+          <Product />
+          <Product />
+          <Product />
         </ul>
       </div>
     </Shopping>
