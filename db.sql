@@ -22,11 +22,11 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`id`, `name`, `image`, `price`, `quantity`, `createdAt`, `available`) VALUES
-	(1, 'Soda!', 'https://source.unsplash.com/300x300/?food', 15.50, 10, '2020-04-17 00:08:35', b'0'),
-	(2, 'Yogurt', 'https://source.unsplash.com/300x300/?food', 25.00, 20, '2020-04-17 22:14:24', b'1'),
+	(1, 'Soda!', 'https://source.unsplash.com/300x300/?food', 15.50, 15, '2020-04-17 00:08:35', b'1'),
+	(2, 'Yogurt', 'https://source.unsplash.com/300x300/?food', 25.00, 27, '2020-04-17 22:14:24', b'1'),
 	(3, 'Milk', 'https://source.unsplash.com/300x300/?food', 10.50, 5, '2020-04-18 03:35:20', b'1'),
-	(4, 'Cookie', 'https://source.unsplash.com/300x300/?food', 5.50, 3, '2020-04-18 03:35:59', b'0'),
-	(5, 'Coffee', 'https://source.unsplash.com/300x300/?food', 23.00, 12, '2020-04-18 10:02:32', b'0'),
+	(4, 'Cookie', 'https://source.unsplash.com/300x300/?food', 5.50, 3, '2020-04-18 03:35:59', b'1'),
+	(5, 'Coffee', 'https://source.unsplash.com/300x300/?food', 23.00, 12, '2020-04-18 10:02:32', b'1'),
 	(6, 'Candy', 'https://source.unsplash.com/300x300/?food', 13.50, 8, '2020-04-18 10:03:17', b'1'),
 	(7, 'Coke', 'https://source.unsplash.com/300x300/?food', 7.50, 9, '2020-04-18 10:03:31', b'1'),
 	(8, 'RedBull', 'https://source.unsplash.com/300x300/?food', 11.00, 19, '2020-04-18 10:07:48', b'1'),
