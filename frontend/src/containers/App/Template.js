@@ -13,23 +13,10 @@ const theme = {
   input: '48px',
 };
 
-const StyledPage = styled.div`
-  background-color: ${props => props.theme.background};
-  color: ${props => props.theme.text};
-`;
-
-const Main = styled.div`
-  height: 100%;
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-  padding: 2rem;
-`;
-
 const GlobalStyles = createGlobalStyle`
   html {
     background-color: ${theme.background};
     box-sizing: border-box;
-    font-size: 10px;
   }
 
 	html,
@@ -40,7 +27,9 @@ const GlobalStyles = createGlobalStyle`
 
 	*, *:before, *:after {
     box-sizing: inherit;
-		font-family: "Open Sans", sans-serif;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -83,6 +72,10 @@ const GlobalStyles = createGlobalStyle`
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		height: 100%;
+		max-width: ${props => props.theme.maxWidth};
+		margin: 0 auto;
+		padding: 1rem;
 	}
 
 	::selection {
@@ -106,10 +99,8 @@ const GlobalStyles = createGlobalStyle`
 const Template = props => {
   return (
     <ThemeProvider theme={theme}>
-      <StyledPage>
-        <GlobalStyles />
-        <Main>{props.children}</Main>
-      </StyledPage>
+      <GlobalStyles />
+      {props.children}
     </ThemeProvider>
   );
 };

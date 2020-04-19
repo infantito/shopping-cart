@@ -5,9 +5,10 @@ export default styled.input`
   border: 1px solid ${props => props.theme.border};
   box-sizing: border-box;
   border-radius: 4px;
-  font-size: 1.6rem;
+  color: ${props => props.theme.text};
+  font-size: 1rem;
   height: 48px;
   outline: none;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   width: 100%;
 `;

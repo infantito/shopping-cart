@@ -21,7 +21,7 @@ export default styled.li`
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.325rem;
     font-weight: 600;
     padding: 0.875rem 0;
   }
@@ -29,6 +29,6 @@ export default styled.li`
   p {
     font-size: 1rem;
     padding: 0;
-    max-width: 160px;
+    max-width: 240px;
   }
 `;

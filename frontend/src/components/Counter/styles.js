@@ -6,7 +6,7 @@ export default styled.button`
   border: 0;
   color: #fff;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
   width: 48px;
   height: 48px;
@@ -23,10 +23,11 @@ export default styled.button`
   & + button {
     background-color: transparent;
     border: 0;
+    color: ${props => props.theme.text};
     cursor: pointer;
-    margin: 0.5rem auto 0;
+    margin: 0.25rem auto 0;
     display: block;
-    font-size: 1.25rem;
+    font-size: 0.75rem;
     text-align: center;
 
     &:hover {

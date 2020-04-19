@@ -26,14 +26,16 @@ export default styled.li`
   }
 
   .title {
-    font-size: 1.6rem;
+    color: ${props => props.theme.text};
+    font-size: 1rem;
+    font-weight: normal;
     margin: 0 auto;
   }
 
   .price {
     color: ${props => props.theme.danger};
     display: block;
-    font-size: 2rem;
+    font-size: 1.325rem;
     font-weight: 600;
   }
 
@@ -43,7 +45,7 @@ export default styled.li`
       justify-content: space-between;
       align-items: center;
       height: 106px;
-      padding: 1rem 2.5rem;
+      padding: 1rem 1.5rem;
     }
   }
 `;

@@ -7,6 +7,8 @@ export default styled.div`
   flex-direction: column;
   width: 360px;
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   .shopping-box {
     width: 100%;
@@ -16,8 +18,8 @@ export default styled.div`
     }
 
     &:last-of-type {
-      padding: 1.5rem 0 0;
-      height: calc((100% - ${props => props.theme.input}) - 10rem);
+      padding: 1rem 0 0;
+      height: calc(100% - ${props => props.theme.input});
     }
 
     &-content {

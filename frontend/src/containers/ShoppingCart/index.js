@@ -11,7 +11,9 @@ const ShoppingCart = props => {
         <TextField />
       </div>
       <div className="shopping-box">
-        <ul className="shopping-box-content"></ul>
+        <ul className="shopping-box-content">
+          <Empty />
+        </ul>
       </div>
     </Shopping>
   );
