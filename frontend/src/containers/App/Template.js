@@ -24,6 +24,10 @@ const GlobalStyles = createGlobalStyle`
 	body,
 	main {
 		height: 100%;
+
+		@media only screen and (max-width: 960px) {
+			height: auto;
+		}
 	}
 
 	*, *:before, *:after {
@@ -73,7 +77,6 @@ const GlobalStyles = createGlobalStyle`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 100%;
 		max-width: ${props => props.theme.maxWidth};
 		margin: 0 auto;
 		padding: 1rem;

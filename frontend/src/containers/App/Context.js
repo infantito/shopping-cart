@@ -58,7 +58,7 @@ const reducer = (state, action) => {
         cart,
       };
     }
-    case 'order': {
+    case 'reset': {
       return {
         quantity: 0,
         cart: new Map(),

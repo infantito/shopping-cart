@@ -29,7 +29,7 @@ INSERT INTO `product` (`id`, `name`, `image`, `price`, `quantity`, `createdAt`, 
 	(5, 'Coffee', 'https://source.unsplash.com/300x300/?food', 23.00, 12, '2020-04-18 10:02:32', b'1'),
 	(6, 'Candy', 'https://source.unsplash.com/300x300/?food', 13.50, 8, '2020-04-18 10:03:17', b'1'),
 	(7, 'Coke', 'https://source.unsplash.com/300x300/?food', 7.50, 9, '2020-04-18 10:03:31', b'1'),
-	(8, 'RedBull', 'https://source.unsplash.com/300x300/?food', 11.00, 19, '2020-04-18 10:07:48', b'1'),
+	(8, 'RedBull', 'https://source.unsplash.com/300x300/?food', 10.00, 19, '2020-04-18 10:07:48', b'1'),
 	(9, 'Ice cream', 'https://source.unsplash.com/300x300/?food', 30.50, 10, '2020-04-18 10:13:22', b'0'),
 	(10, 'Soup', 'https://source.unsplash.com/300x300/?food', 15.00, 2, '2020-04-18 10:31:00', b'1');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;

@@ -13,7 +13,7 @@ const resolvers = {
     async products(_, { input }, { models }) {
       const where = { available: true };
 
-      if (input) where.name = { [Op.like]: `%${input.name}%` };
+      if (input && input.name) where.name = { [Op.like]: `%${input.name}%` };
 
       return models.product.findAll({ where });
     },

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from '@reach/router';
+import { navigate } from '@reach/router';
 import styled from 'styled-components';
 import AppContext from 'containers/App/Context';
 import { HOME } from 'constants/paths';
@@ -36,9 +36,16 @@ const Section = styled.section`
   }
 `;
 
-const ThankYou = _ => {
-  const [{ order }] = useContext(AppContext);
-  const code = formatShippingCode(order?.id);
+const ThankYou = ({ location }) => {
+  const [, dispatch] = useContext(AppContext);
+
+  const handleShopping = e => {
+    e.preventDefault();
+    dispatch({ type: 'reset' });
+    navigate(HOME);
+  };
+  const order = location.state?.order;
+  const code = formatShippingCode(order);
 
   return (
     <Section>
@@ -48,7 +55,9 @@ const ThankYou = _ => {
           ? `Your order ${code} has been registered`
           : 'Come and explore our world!'}
       </p>
-      <Link to={HOME}>{order ? 'Continue' : 'Start'} shopping</Link>
+      <a href={HOME} onClick={handleShopping}>
+        {order ? 'Continue' : 'Start'} shopping
+      </a>
       <img src={success} alt="📦" />
     </Section>
   );

@@ -7,21 +7,36 @@ const Section = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   height: 656px;
 
   .home {
     &-searching {
       padding: 0 1.5rem 0 0;
+
+      @media only screen and (max-width: 960px) {
+        padding: 0;
+        margin: 0 auto;
+      }
     }
 
     &-summary {
       padding: 0 0 0 1.5rem;
+
+      @media only screen and (max-width: 960px) {
+        padding: 0;
+        margin: 0 auto;
+      }
     }
 
     &-searching,
     &-summary {
       height: 100%;
       width: 380px;
+
+      @media only screen and (max-width: 960px) {
+        width: 100%;
+      }
     }
   }
 

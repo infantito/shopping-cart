@@ -2,7 +2,7 @@ import React, { memo, useRef, useEffect } from 'react';
 import { Minus, Plus } from 'components/Counter/Marks';
 import ButtonBox, { Handler } from 'components/Counter/styles';
 
-const Counter = memo(({ handleAdding, product, handleDelete, stock }) => {
+const Counter = memo(({ handleAdding, product, handleDelete }) => {
   return (
     <ButtonBox>
       <button type="button" onClick={handleAdding}>

@@ -1,10 +1,11 @@
 import React from 'react';
 import Button from 'components/PayButton/styles';
+import { Spinner } from 'components/Loader';
 
-const PayButton = props => {
+const PayButton = ({ isActive, loading, handlePay }) => {
   return (
-    <Button type="button" disabled={props.isActive}>
-      COMPLETE ORDER
+    <Button type="button" disabled={isActive || loading} onClick={handlePay}>
+      COMPLETE ORDER {loading ? <Spinner /> : null}
     </Button>
   );
 };

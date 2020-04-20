@@ -1,5 +1,5 @@
 import React from 'react';
-import ClipLoader from 'react-spinners/ClipLoader';
+import { ClipLoader, PulseLoader } from 'react-spinners';
 import LoaderBox from 'components/Loader/styles';
 
 const Loader = () => (
@@ -8,4 +8,8 @@ const Loader = () => (
   </LoaderBox>
 );
 
-export default Loader;
+const Spinner = () => (
+  <PulseLoader sizeUnit={'px'} size={7.5} color="#0500FF" loading={true} />
+);
+
+export { Spinner, Loader as default };

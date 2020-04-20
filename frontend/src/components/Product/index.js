@@ -95,7 +95,6 @@ const Product = ({ product }) => {
                 handleAdding={handleAdding}
                 product={item}
                 handleDelete={handleDelete}
-                stock={product.quantity}
               />
             ) : null}
           </div>
