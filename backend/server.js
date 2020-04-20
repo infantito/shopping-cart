@@ -1,6 +1,7 @@
 require('dotenv').config({ path: '.env' });
 
 const express = require('express');
+const cors = require('cors');
 const { ApolloServer } = require('apollo-server-express');
 
 const models = require('./models');
@@ -22,6 +23,11 @@ const server = new ApolloServer({
 const app = express();
 
 app.use(express.static('app/build'));
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+  }),
+);
 server.applyMiddleware({ app, path: '/', playgroundPath: '/graphql' });
 
 app.listen({ port: PORT }, () =>
