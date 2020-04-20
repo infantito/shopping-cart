@@ -31,7 +31,7 @@ const Section = styled.section`
   }
 `;
 
-const Home = props => {
+const Home = () => {
   return (
     <Section>
       <div className="home-searching">

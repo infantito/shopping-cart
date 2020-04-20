@@ -36,6 +36,18 @@ export const Handler = styled.div`
           transform: scale(0.9);
         }
       }
+
+      & + button {
+        font-size: 0.75rem;
+      }
+
+      & + span {
+        font-size: 0.75rem;
+        color: ${props => props.theme.danger};
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
     }
   }
 

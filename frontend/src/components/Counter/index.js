@@ -2,7 +2,7 @@ import React, { memo, useRef, useEffect } from 'react';
 import { Minus, Plus } from 'components/Counter/Marks';
 import ButtonBox, { Handler } from 'components/Counter/styles';
 
-const Counter = memo(({ handleAdding, product, handleDelete }) => {
+const Counter = memo(({ handleAdding, product, handleDelete, stock }) => {
   return (
     <ButtonBox>
       <button type="button" onClick={handleAdding}>
@@ -16,7 +16,14 @@ const Counter = memo(({ handleAdding, product, handleDelete }) => {
 });
 
 const Accumulator = memo(
-  ({ product, index, handleBlurAccumulator, handleChange, handleDelete }) => {
+  ({
+    product,
+    index,
+    handleBlurAccumulator,
+    handleChange,
+    handleDelete,
+    stock,
+  }) => {
     const containerRef = useRef(null);
     const value = product.quantity ?? 1;
 
@@ -46,9 +53,16 @@ const Accumulator = memo(
             <Plus />
           </button>
         </div>
-        <button type="button" onClick={product.id && handleDelete(product.id)}>
-          delete
-        </button>
+        {stock === product.quantity ? (
+          <span>out of stock</span>
+        ) : (
+          <button
+            type="button"
+            onClick={product.id && handleDelete(product.id)}
+          >
+            delete
+          </button>
+        )}
       </Handler>
     );
   },

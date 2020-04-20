@@ -1,13 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { memo } from 'react';
 import BillingBox from 'components/Billing/styles';
-import { formatMoney, getBilling } from 'utils/billing';
+import { formatMoney } from 'utils/billing';
 
-const Billing = ({ cart }) => {
-  const { shipping, subtotal, taxes } = useMemo(() => {
-    const values = Array.from(cart.values());
-    return getBilling(values);
-  }, [cart]);
-
+const Billing = ({ shipping, subtotal, taxes }) => {
   return (
     <BillingBox>
       <div className="summary-cart">
@@ -34,4 +29,4 @@ const Billing = ({ cart }) => {
   );
 };
 
-export default React.memo(Billing);
+export default memo(Billing);

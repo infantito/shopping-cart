@@ -3,6 +3,7 @@ import Counter, { Accumulator } from 'components/Counter';
 import ProductBox from 'components/Product/styles';
 import AppContext from 'containers/App/Context';
 import { formatMoney } from 'utils/billing';
+import { isNumeric } from 'utils/product';
 
 const Product = ({ product }) => {
   const [state, dispatch] = useContext(AppContext);
@@ -26,35 +27,53 @@ const Product = ({ product }) => {
         dispatch({
           type: 'counter',
           product,
-          quantity: total,
+          quantity: total > product.quantity ? product.quantity : total,
         });
       } else {
-        setAccumulator(false);
+        accumulator && setAccumulator(false);
         dispatch({
           type: 'delete',
           id,
         });
       }
     } else {
+      let value = e.target.value ?? 0;
+      const char = e.nativeEvent?.data;
+      value = isNumeric(value) ? value : value.replace(char, '');
+
       dispatch({
         type: 'counter',
         product,
-        temp: true,
-        quantity: e.target.value ?? 0,
+        temp: +item.quantity,
+        quantity: value > product.quantity ? product.quantity : value,
       });
     }
   };
-  const handleBlurAccumulator = useCallback(e => {
-    const related =
-      e.relatedTarget ||
-      e.nativeEvent?.explicitOriginalTarget ||
-      document.activeElement;
-    const blur = e.currentTarget.parentNode.contains(related);
-    !blur && setAccumulator(blur);
-  }, []);
+  const handleBlurAccumulator = useCallback(
+    e => {
+      const related =
+        e.relatedTarget ||
+        e.nativeEvent?.explicitOriginalTarget ||
+        document.activeElement;
+      const blur = e.currentTarget.parentNode.contains(related);
+
+      if (!blur) {
+        setAccumulator(blur);
+
+        if (item.temp && !item.quantity) {
+          dispatch({
+            type: 'counter',
+            product,
+            quantity: item.temp,
+          });
+        }
+      }
+    },
+    [item, dispatch, product],
+  );
   const handleDelete = productId => _ => {
-    setAccumulator(false);
-    dispatch({ type: 'delete', id: productId });
+    accumulator && setAccumulator(false);
+    if (productId) dispatch({ type: 'delete', id: productId });
   };
 
   return (
@@ -76,6 +95,7 @@ const Product = ({ product }) => {
                 handleAdding={handleAdding}
                 product={item}
                 handleDelete={handleDelete}
+                stock={product.quantity}
               />
             ) : null}
           </div>
@@ -87,6 +107,7 @@ const Product = ({ product }) => {
             product={item}
             index="0"
             handleDelete={handleDelete}
+            stock={product.quantity}
           />
         ) : null}
       </data>
