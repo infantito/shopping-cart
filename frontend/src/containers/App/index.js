@@ -21,7 +21,7 @@ const NotFound = () => (
   </div>
 );
 
-function App() {
+const App = _ => {
   return (
     <Template>
       <Router primary={false} component={Unnecessary}>
@@ -35,6 +35,6 @@ function App() {
       </Router>
     </Template>
   );
-}
+};
 
 export default App;

@@ -13,12 +13,13 @@ const Bag = ({ cart, searching, response }) => {
   let products = [];
 
   if (loading) return <Loader />;
+
   if (searching) {
     if (error || data?.products?.length === 0) {
       return <NotFound />;
     }
 
-    products = data.products;
+    products = data?.products || [];
   } else if (cart.size === 0) {
     return <Empty />;
   } else {
@@ -28,7 +29,7 @@ const Bag = ({ cart, searching, response }) => {
   return (
     <>
       {products.map(product => (
-        <Product product={product} key={product.id} />
+        <Product product={product} key={product.id} counter={!!searching} />
       ))}
     </>
   );

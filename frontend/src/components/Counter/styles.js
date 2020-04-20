@@ -19,19 +19,23 @@ export const Handler = styled.div`
       align-items: center;
       justify-content: space-between;
       width: 180px;
-    }
-  }
+      outline: none;
 
-  button {
-    appearance: none;
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
-    outline: none;
-    width: 25%;
+      & > button,
+      & + button {
+        appearance: none;
+        border: 0;
+        display: block;
+        margin: 0 auto;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+        width: 25%;
 
-    &:active {
-      transform: scale(0.9);
+        &:active {
+          transform: scale(0.9);
+        }
+      }
     }
   }
 
@@ -80,18 +84,20 @@ export default styled.div`
       border: 0;
       color: #fff;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1rem;
       font-weight: bold;
       width: ${props => props.theme.input};
       height: ${props => props.theme.input};
-      transform: rotate(45deg);
 
       &:hover {
         opacity: 0.9;
       }
 
       &:active {
-        transform: scale(0.9) rotate(45deg);
+        transform: scale(0.9);
       }
     }
 
@@ -112,6 +118,11 @@ export default styled.div`
       &:active {
         transform: scale(0.9);
       }
+    }
+
+    svg {
+      height: 20px;
+      width: 20px;
     }
   }
 `;

@@ -1,7 +1,11 @@
+import { getRandomProduct } from 'utils/product';
+
 export default {
   Product: {
     image() {
-      return 'https://source.unsplash.com/300x300/?food';
+      const random = getRandomProduct();
+
+      return `https://source.unsplash.com/80x80/?${random}`;
     },
   },
 };

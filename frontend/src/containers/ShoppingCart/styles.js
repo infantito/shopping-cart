@@ -7,11 +7,11 @@ export default styled.div`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 
   .shopping-box {
     width: 100%;
+    overflow: hidden;
 
     &:last-of-type {
       padding: 1rem 0 0;
@@ -25,6 +25,8 @@ export default styled.div`
     &-content {
       border-radius: 4px;
       height: 100%;
+      overflow-y: auto;
+      overflow-x: auto;
     }
   }
 `;

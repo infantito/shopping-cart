@@ -1,5 +1,5 @@
 exports.DELIVERY_DAY = 1;
-exports.TAXES = 18;
+exports.TAXES = 0.18;
 exports.SHIPPING_COST = 10;
 exports.LOCAL = 'es-US';
 exports.CURRENCY_OPTIONS = { style: 'currency', currency: 'USD' };

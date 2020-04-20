@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from '@reach/router';
 import styled from 'styled-components';
+import AppContext from 'containers/App/Context';
 import { HOME } from 'constants/paths';
 import { formatShippingCode } from 'utils/success';
 import success from 'assets/success.png';
@@ -35,14 +36,19 @@ const Section = styled.section`
   }
 `;
 
-const ThankYou = ({ shippingId }) => {
-  const code = formatShippingCode(shippingId);
+const ThankYou = _ => {
+  const [{ order }] = useContext(AppContext);
+  const code = formatShippingCode(order?.id);
 
   return (
     <Section>
-      <h3 className="title">Thank You</h3>
-      <p className="message">Your order {code} has been registered</p>
-      <Link to={HOME}>Continue shopping</Link>
+      <h3 className="title">{order ? 'Thank You' : `Hey, don't go!`}</h3>
+      <p className="message">
+        {order
+          ? `Your order ${code} has been registered`
+          : 'Come and explore our world!'}
+      </p>
+      <Link to={HOME}>{order ? 'Continue' : 'Start'} shopping</Link>
       <img src={success} alt="📦" />
     </Section>
   );

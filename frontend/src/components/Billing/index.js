@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import BillingBox from 'components/Billing/styles';
-import { formatMoney } from 'utils/billing';
+import { formatMoney, getBilling } from 'utils/billing';
 
-const Billing = ({ subtotal, shipping, taxes, total }) => {
+const Billing = ({ cart }) => {
+  const { shipping, subtotal, taxes } = useMemo(() => {
+    const values = Array.from(cart.values());
+    return getBilling(values);
+  }, [cart]);
+
   return (
     <BillingBox>
       <div className="summary-cart">
@@ -17,12 +22,12 @@ const Billing = ({ subtotal, shipping, taxes, total }) => {
           </div>
           <div className="detail-row">
             <p className="text">Taxes</p>
-            <span className="text">{formatMoney(taxes)}</span>
+            <span className="text">{formatMoney(subtotal * taxes)}</span>
           </div>
         </div>
         <div className="total">
           <p className="text">Total</p>
-          <span className="text">{formatMoney(total)}</span>
+          <span className="text">{formatMoney(subtotal + shipping)}</span>
         </div>
       </div>
     </BillingBox>

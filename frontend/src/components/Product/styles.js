@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export default styled.li`
   width: 100%;
+  position: relative;
 
   &:not(:last-of-type) {
     border-bottom: 1px solid ${props => props.theme.border};
@@ -30,12 +31,14 @@ export default styled.li`
     }
 
     &-image {
+      background-color: ${props => props.theme.background};
       width: 80px;
       height: 80px;
     }
 
     &-info {
       height: inherit;
+      padding: 0 0.5rem 0 1.5rem;
 
       &-content {
         display: flex;

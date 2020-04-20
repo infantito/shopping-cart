@@ -5,7 +5,7 @@ const ALL_PRODUCTS = gql`
     products(input: $input) {
       id
       name
-      image
+      image @client
       price
       quantity
     }
