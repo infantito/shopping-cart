@@ -21,7 +21,7 @@ const server = new ApolloServer({
 
 const app = express();
 
-app.use(express.static('app/public'));
+app.use(express.static('app/build'));
 server.applyMiddleware({ app, path: '/', playgroundPath: '/graphql' });
 
 app.listen({ port: PORT }, () =>
